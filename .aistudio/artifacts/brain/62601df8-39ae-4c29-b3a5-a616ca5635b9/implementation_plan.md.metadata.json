@@ -1,0 +1,6 @@
+{
+  "summary":  "Plano revisado do aplicativo de economia pessoal atendendo às diretrizes estritas do usuário: 100% gratuito (sem cobranças de qualquer tipo) e 100% local (sem nuvem e sem Firebase). Autenticação e proteção de perfis implementadas localmente com hash seguro no SQLite do próprio dispositivo, garantindo privacidade total e funcionamento offline.",
+  "updatedAt":  "2026-10-29T18:15:02.746509830Z",
+  "requestFeedback":  true,
+  "userFacing":  true
+}

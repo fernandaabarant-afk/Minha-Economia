@@ -1,0 +1,6 @@
+{
+  "name": "Economia Pessoal",
+  "description": "Aplicativo de economia pessoal 100% local, seguro e gratuito. Controle despesas, metas, orçamentos e relatórios sem envio de dados para a nuvem.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
