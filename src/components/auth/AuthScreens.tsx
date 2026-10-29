@@ -121,7 +121,7 @@ export const AuthScreens: React.FC = () => {
   };
 
   return (
-    <div className="flex-1 flex flex-col justify-center px-6 py-8">
+    <div className="min-h-screen flex flex-col justify-center items-center px-4 py-8 max-w-md mx-auto w-full">
       {/* Logotipo e Identidade Visual (Azul & Branco) */}
       <div className="text-center mb-6">
         <div className="w-16 h-16 rounded-3xl bg-[#365E91] text-white flex items-center justify-center mx-auto shadow-xl shadow-[#365E91]/30 mb-3">

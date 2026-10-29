@@ -153,18 +153,18 @@ export const GoalsScreen: React.FC = () => {
   };
 
   return (
-    <div className="flex-1 pb-24 px-4 pt-3 space-y-4">
+    <div className="space-y-6">
       {/* Cabeçalho */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h1 className="text-lg font-bold text-[#26364A]">Metas de Economia</h1>
-          <p className="text-xs text-[#718096]">
+          <h1 className="text-lg sm:text-xl font-bold text-[#26364A]">Metas de Economia</h1>
+          <p className="text-xs sm:text-sm text-[#718096]">
             Guarde dinheiro com propósito sem misturar com despesas de consumo
           </p>
         </div>
         <button
           onClick={abrirModalCriacao}
-          className="px-3.5 py-2 rounded-xl bg-[#365E91] text-white hover:bg-[#2A4D78] transition-colors cursor-pointer text-xs font-bold flex items-center gap-1.5 shadow-xs"
+          className="px-3.5 py-2 rounded-xl bg-[#365E91] text-white hover:bg-[#2A4D78] transition-colors cursor-pointer text-xs font-bold flex items-center gap-1.5 shadow-xs self-start sm:self-auto"
         >
           <Plus className="w-4 h-4 stroke-[2.5]" />
           <span>Nova Meta</span>
@@ -172,7 +172,7 @@ export const GoalsScreen: React.FC = () => {
       </div>
 
       {/* Abas Ativas vs Concluídas */}
-      <div className="grid grid-cols-2 gap-2 p-1 bg-white rounded-2xl border border-[#DCE7F5] shadow-xs">
+      <div className="max-w-md grid grid-cols-2 gap-2 p-1 bg-white rounded-2xl border border-[#DCE7F5] shadow-xs">
         <button
           onClick={() => setAbaMetas('ATIVAS')}
           className={`py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
@@ -195,10 +195,10 @@ export const GoalsScreen: React.FC = () => {
         </button>
       </div>
 
-      {/* Lista de Metas */}
+      {/* Lista de Metas Responsiva */}
       {((abaMetas === 'ATIVAS' && metasAtivas.length > 0) ||
         (abaMetas === 'CONCLUIDAS' && metasConcluidas.length > 0)) ? (
-        <div className="space-y-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {(abaMetas === 'ATIVAS' ? metasAtivas : metasConcluidas).map(meta => {
             const aportado = obterTotalAportadoMeta(meta.id);
             const restante = Math.max(0, meta.valorAlvoCentavos - aportado);

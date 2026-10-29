@@ -148,30 +148,30 @@ export const TransactionsScreen: React.FC<TransactionsScreenProps> = ({
   const CORES_PALETA = ['#365E91', '#567FB5', '#E65100', '#2E7D32', '#C62828', '#7C3AED', '#0284C7', '#D97706'];
 
   return (
-    <div className="flex-1 pb-24 px-4 pt-3 space-y-4">
+    <div className="space-y-6">
       {/* Cabeçalho */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h1 className="text-lg font-bold text-[#26364A]">Lançamentos</h1>
-          <p className="text-xs text-[#718096]">
+          <h1 className="text-lg sm:text-xl font-bold text-[#26364A]">Lançamentos</h1>
+          <p className="text-xs sm:text-sm text-[#718096]">
             {transacoesFiltradas.length} {transacoesFiltradas.length === 1 ? 'registro' : 'registros'} encontrados
           </p>
         </div>
         <div className="flex items-center gap-2">
           <button
             onClick={() => setModalGerenciarCategorias(true)}
-            className="p-2 rounded-xl bg-white border border-[#DCE7F5] text-[#365E91] hover:bg-[#F4F7FC] transition-colors cursor-pointer text-xs font-semibold flex items-center gap-1.5 shadow-xs"
+            className="p-2 sm:px-3 sm:py-2 rounded-xl bg-white border border-[#DCE7F5] text-[#365E91] hover:bg-[#F4F7FC] transition-colors cursor-pointer text-xs font-semibold flex items-center gap-1.5 shadow-xs"
             title="Gerenciar Categorias"
           >
             <Tag className="w-3.5 h-3.5" />
-            <span className="hidden sm:inline">Categorias</span>
+            <span>Categorias</span>
           </button>
           <button
             onClick={onAbrirNovoLancamento}
-            className="px-3 py-2 rounded-xl bg-[#365E91] text-white hover:bg-[#2A4D78] transition-colors cursor-pointer text-xs font-bold flex items-center gap-1 shadow-xs"
+            className="px-3.5 py-2 rounded-xl bg-[#365E91] text-white hover:bg-[#2A4D78] transition-colors cursor-pointer text-xs font-bold flex items-center gap-1.5 shadow-xs"
           >
             <Plus className="w-4 h-4 stroke-[2.5]" />
-            <span>Novo</span>
+            <span>Novo Lançamento</span>
           </button>
         </div>
       </div>

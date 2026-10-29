@@ -202,17 +202,19 @@ export const AnalyticsScreen: React.FC = () => {
   }, [dadosCategorias, totalDespesasCentavos]);
 
   return (
-    <div className="flex-1 pb-24 px-4 pt-3 space-y-4">
+    <div className="space-y-6">
       {/* Cabeçalho */}
       <div>
-        <h1 className="text-lg font-bold text-[#26364A]">Análises Financeiras</h1>
-        <p className="text-xs text-[#718096]">
+        <h1 className="text-lg sm:text-xl font-bold text-[#26364A]">Análises Financeiras</h1>
+        <p className="text-xs sm:text-sm text-[#718096]">
           Visão gráfica das despesas, comparativos e evolução temporal
         </p>
       </div>
 
-      {/* Gráfico 1: Despesas por Categoria (Donut Interativo) */}
-      <div className="bg-white rounded-3xl p-5 border border-[#DCE7F5] shadow-xs space-y-4">
+      {/* Grid de Gráficos: 2 Colunas no Desktop / 1 no Mobile */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+        {/* Gráfico 1: Despesas por Categoria (Donut Interativo) */}
+        <div className="bg-white rounded-3xl p-5 sm:p-6 border border-[#DCE7F5] shadow-xs space-y-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <PieChart className="w-4 h-4 text-[#365E91]" />
@@ -367,9 +369,10 @@ export const AnalyticsScreen: React.FC = () => {
           })}
         </div>
       </div>
+      </div>
 
-      {/* Gráfico 3: Comparativo de Variação de Gastos por Categoria */}
-      <div className="bg-white rounded-3xl p-5 border border-[#DCE7F5] shadow-xs space-y-3">
+      {/* Gráfico 3: Comparativo de Variação de Gastos por Categoria (Largura Total) */}
+      <div className="bg-white rounded-3xl p-5 sm:p-6 border border-[#DCE7F5] shadow-xs space-y-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <TrendingUp className="w-4 h-4 text-[#365E91]" />

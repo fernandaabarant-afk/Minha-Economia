@@ -153,17 +153,17 @@ export const BudgetScreen: React.FC = () => {
   };
 
   return (
-    <div className="flex-1 pb-24 px-4 pt-3 space-y-4">
+    <div className="space-y-6">
       {/* Cabeçalho */}
       <div>
-        <h1 className="text-lg font-bold text-[#26364A]">Orçamento & Recorrências</h1>
-        <p className="text-xs text-[#718096]">
+        <h1 className="text-lg sm:text-xl font-bold text-[#26364A]">Orçamento & Recorrências</h1>
+        <p className="text-xs sm:text-sm text-[#718096]">
           Controle tetos de despesas em {obterNomeMes(mesSelecionado)} e preveja gastos fixos
         </p>
       </div>
 
       {/* Seletor entre Orçamento e Recorrências */}
-      <div className="grid grid-cols-2 gap-2 p-1 bg-white rounded-2xl border border-[#DCE7F5] shadow-xs">
+      <div className="max-w-md grid grid-cols-2 gap-2 p-1 bg-white rounded-2xl border border-[#DCE7F5] shadow-xs">
         <button
           onClick={() => setAbaInterna('ORCAMENTO')}
           className={`py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
@@ -282,7 +282,7 @@ export const BudgetScreen: React.FC = () => {
               <span className="text-[11px] text-[#718096]">Metas de contenção de gastos</span>
             </div>
 
-            <div className="space-y-2.5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {orcamentosPorCategoria.map(item => (
                 <div
                   key={item.cat.id}
@@ -353,7 +353,7 @@ export const BudgetScreen: React.FC = () => {
           </div>
 
           {recorrencias.length > 0 ? (
-            <div className="space-y-2.5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {recorrencias.map(rec => {
                 const cat = mapaCategorias.get(rec.categoriaId);
                 return (

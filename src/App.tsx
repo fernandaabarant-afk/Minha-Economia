@@ -9,7 +9,7 @@ import { FinanceProvider } from './context/FinanceContext.tsx';
 import { AuthScreens } from './components/auth/AuthScreens.tsx';
 import { NumericKeypadModal } from './components/common/NumericKeypadModal.tsx';
 import { BottomNav } from './components/layout/BottomNav.tsx';
-import { MobileFrame } from './components/layout/MobileFrame.tsx';
+import { AppLayout } from './components/layout/AppLayout.tsx';
 import { AnalyticsScreen } from './components/screens/AnalyticsScreen.tsx';
 import { BudgetScreen } from './components/screens/BudgetScreen.tsx';
 import { GoalsScreen } from './components/screens/GoalsScreen.tsx';
@@ -29,12 +29,12 @@ const AppContent: React.FC = () => {
 
   if (carregando) {
     return (
-      <div className="flex-1 flex flex-col items-center justify-center p-6 text-center bg-[#F4F7FC]">
+      <div className="min-h-screen flex flex-col items-center justify-center p-6 text-center bg-[#F4F7FC]">
         <div className="w-12 h-12 rounded-2xl bg-[#365E91] text-white flex items-center justify-center animate-pulse mb-3">
           <div className="w-6 h-6 border-3 border-white border-t-transparent rounded-full animate-spin" />
         </div>
-        <span className="text-xs font-bold text-[#26364A]">Economia Pessoal</span>
-        <span className="text-[11px] text-[#718096] mt-0.5">Carregando dados seguros locais...</span>
+        <span className="text-sm font-bold text-[#26364A]">Economia Pessoal</span>
+        <span className="text-xs text-[#718096] mt-0.5">Carregando dados seguros locais...</span>
       </div>
     );
   }
@@ -57,7 +57,11 @@ const AppContent: React.FC = () => {
   };
 
   return (
-    <>
+    <AppLayout
+      abaAtiva={abaAtiva}
+      onSelecionarAba={setAbaAtiva}
+      onAbrirNovoLancamento={() => handleAbrirNovoLancamentoComTipo('DESPESA')}
+    >
       {/* Telas da Aplicação Conforme a Aba Ativa */}
       {abaAtiva === 'inicio' && (
         <HomeScreen
@@ -82,15 +86,6 @@ const AppContent: React.FC = () => {
 
       {abaAtiva === 'perfil' && <ProfileScreen onVoltar={() => setAbaAtiva('inicio')} />}
 
-      {/* Barra de Navegação Móvel Inferior (Oculta na tela de perfil para foco total) */}
-      {abaAtiva !== 'perfil' && (
-        <BottomNav
-          abaAtiva={abaAtiva}
-          onSelecionarAba={setAbaAtiva}
-          onAbrirNovoLancamento={() => handleAbrirNovoLancamentoComTipo('DESPESA')}
-        />
-      )}
-
       {/* Modal Bottom Sheet com Teclado Numérico Formatado */}
       <NumericKeypadModal
         aberto={modalLancamentoAberto}
@@ -101,7 +96,7 @@ const AppContent: React.FC = () => {
         tipoInicial={tipoLancamentoInicial}
         transacaoParaEditar={transacaoParaEditar}
       />
-    </>
+    </AppLayout>
   );
 };
 
@@ -109,9 +104,7 @@ export default function App() {
   return (
     <AuthProvider>
       <FinanceProvider>
-        <MobileFrame>
-          <AppContent />
-        </MobileFrame>
+        <AppContent />
       </FinanceProvider>
     </AuthProvider>
   );

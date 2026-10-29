@@ -116,18 +116,18 @@ export const ProfileScreen: React.FC<ProfileScreenProps> = ({ onVoltar }) => {
   };
 
   return (
-    <div className="flex-1 pb-24 px-4 pt-3 space-y-4">
+    <div className="max-w-3xl mx-auto space-y-6">
       {/* Botão Voltar e Título */}
       <div className="flex items-center gap-3">
         <button
           onClick={onVoltar}
-          className="w-9 h-9 rounded-xl bg-white border border-[#DCE7F5] flex items-center justify-center text-[#365E91] hover:bg-[#F4F7FC] transition-colors cursor-pointer"
+          className="w-10 h-10 rounded-2xl bg-white border border-[#DCE7F5] flex items-center justify-center text-[#365E91] hover:bg-[#F4F7FC] transition-colors cursor-pointer shadow-xs"
         >
-          <ArrowLeft className="w-4 h-4" />
+          <ArrowLeft className="w-5 h-5" />
         </button>
         <div>
-          <h1 className="text-lg font-bold text-[#26364A]">Perfil & Segurança Local</h1>
-          <p className="text-xs text-[#718096]">Controle de privacidade 100% no dispositivo</p>
+          <h1 className="text-lg sm:text-xl font-bold text-[#26364A]">Perfil & Segurança Local</h1>
+          <p className="text-xs sm:text-sm text-[#718096]">Controle de privacidade 100% no dispositivo</p>
         </div>
       </div>
 
